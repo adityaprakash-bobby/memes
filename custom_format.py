@@ -5,19 +5,22 @@ class CustomFormat:
     def __init__(
         self,
         images,
-        texts,
+        top_text,
+        bottom_text,
         operations,
         font_path='impact/impact.ttf',
         font_size=9
     ):
         self.images = images
-        self.texts = texts
+        self.top_text = top_text
+        self.bottom_text = bottom_text
         self.operations = operations
         self.font_path = font_path
         self.font_size = font_size
 
     def generate(self):
-        text_stack = self.texts.split(',')
+        text_top_stack = self.top_text.split(',')
+        text_bottom_stack = self.bottom_text.split(',')
         image_stack= list(map(Image.open,self.images.split(',')))
         operation_stack = self.operations.split(',')
 
